@@ -26,20 +26,17 @@ async def extract(file: UploadFile = File(...)) -> List[Dict[str, Union[Union[in
 
     pages_result = []
     for i, page in enumerate(doc):
-        content = []
+        title = []
         for layout in page.layouts:
             if layout.category_name == "title":
-                content.append("title" : f"{layout.text}")
+                title.append(f"{layout.text}")
                 # title = layout.text
-            elif layout.category_name == "list":
-                content.append("list" : f"{layout.text}")
-                # list = layout.text
         text = page.text
         tables = page.tables or []
         tables_html = [table.html for table in tables]
         page_result = {
             "page_number": i + 1,
-            "content": content,
+            "title": title,
             "text": text,
             "table": tables_html,
         }
