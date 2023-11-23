@@ -29,10 +29,10 @@ async def extract(file: UploadFile = File(...)) -> List[Dict[str, Union[Union[in
         content = []
         for layout in page.layouts:
             if layout.category_name == "title":
-                content.append(f'title : {layout.text}')
+                content.append("title" : f"{layout.text}")
                 # title = layout.text
             elif layout.category_name == "list":
-                content.append(f'list : {layout.text}')
+                content.append("list" : f"{layout.text}")
                 # list = layout.text
         text = page.text
         tables = page.tables or []
