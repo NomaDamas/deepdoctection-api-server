@@ -1,3 +1,4 @@
+from http import HTTPStatus
 from typing import List, Dict, Union, Any
 
 from fastapi.middleware.cors import CORSMiddleware
@@ -15,6 +16,15 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.get("/")
+def root():
+    response = {
+        "status-code": HTTPStatus.OK,
+        "data": {},
+    }
+    return response
 
 
 @app.post("/extract")
