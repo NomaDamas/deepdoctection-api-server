@@ -7,7 +7,7 @@ import deepdoctection as dd
 from fastapi import FastAPI, File, UploadFile
 
 app = FastAPI(title="DeepDoctection API")
-origins = []
+origins = ["http://localhost", "http://127.0.0.1"]
 
 app.add_middleware(
     CORSMiddleware,
