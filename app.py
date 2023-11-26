@@ -30,7 +30,19 @@ def root():
 @app.post("/extract")
 async def extract(file: UploadFile = File(...)) -> List[Dict[str, Union[Union[int, List[str], List[Any]], Any]]]:
     analyzer = dd.get_dd_analyzer()
-    df = analyzer.analyze(path=file.file)
+    # Save the uploaded file to a temporary location
+    with open(file.filename, 'wb+') as out_file:
+        out_file.write(await file.read())
+        
+    # Get the file path
+    file_path = os.path.abspath(file.filename)
+
+    # Analyze the file
+    df = analyzer.analyze(path=file_path)
+
+    # Don't forget to remove the file if it's no longer needed
+    os.remove(file_path)
+    
     df.reset_state()
     doc = iter(df)
 
