@@ -57,7 +57,7 @@ async def extract(file: UploadFile = File(...)) -> List[Dict[str, Union[Union[in
 def main():
     import uvicorn
 
-    uvicorn.run("app:app", port=8000)
+    uvicorn.run("app:app", host="0.0.0.0" ,port=8000)
 
 
 if __name__ == "__main__":
