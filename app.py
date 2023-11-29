@@ -32,7 +32,7 @@ def root():
 @app.post("/extract")
 async def extract(file: UploadFile = File(...)) -> List[Dict[str, Union[Union[int, List[str], List[Any]], Any]]]:
     analyzer = dd.get_dd_analyzer()
-        # Save the uploaded file to a temporary location
+    # Save the uploaded file to a temporary location
     with tempfile.NamedTemporaryFile(delete=True) as tmp:
         tmp.write(await file.read())
 
