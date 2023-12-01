@@ -100,6 +100,11 @@ _DEPS = [
     "pytest",
     "pytest-cov",
     "wandb",
+    # api-server
+    "fastapi",
+    "pypdf",
+    "uvicorn",
+    "python-multipart",
 ]
 
 # lookup table with items like:
