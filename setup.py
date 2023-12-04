@@ -104,7 +104,7 @@ _DEPS = [
     "fastapi",
     "pypdf",
     "uvicorn",
-    "python-multipart",
+    "python-multipart"
 ]
 
 # lookup table with items like:
@@ -134,6 +134,10 @@ dist_deps = deps_list(
     "termcolor",
     "tabulate",
     "tqdm",
+    "fastapi",
+    "pypdf",
+    "uvicorn",
+    "python-multipart",
 )
 
 
@@ -212,6 +216,7 @@ EXTRA_DEPS = {
     "dev": dev_deps,
     "test": test_deps,
     "hf": pt_deps,
+    "extra": ["fastapi", "pypdf", "uvicorn", "python-multipart"]
 }
 
 setup(
